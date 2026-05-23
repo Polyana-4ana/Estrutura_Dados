@@ -39,6 +39,25 @@ class vetorordenado:
         self.valores[posicao] = valor
         self.ultima_posicao += 1
 
+#Notação O(n)
+    def pesquisa(self, valor):
+        for i in range(self.ultima_posicao + 1):
+            if self.valores[i] > valor:
+                return - 1
+            if self.valores[i] == valor:
+                return(i)
+            if i == self.ultima_posicao:
+                return -1
+            
+    def exclui(self, valor):
+        posicao = self.pesquisa(valor)
+        if posicao == -1:
+            return -1
+        else:
+            for i in range(posicao, self.ultima_posicao):
+                self.valores[i] = self.valores[i + 1]
+
+
 if __name__ == '__main__':
 
     vetor = vetorordenado(6)
@@ -48,5 +67,10 @@ if __name__ == '__main__':
     vetor.insere(5)
     vetor.insere(1)
     vetor.insere(8)
+    vetor.imprime()
+
+    print(vetor.pesquisa(3))
+
+    vetor.exclui(1)
     vetor.imprime()
  

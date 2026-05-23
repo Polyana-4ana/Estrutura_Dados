@@ -32,6 +32,7 @@ class vetornaoordenado:
                 return i
         return - 1
     
+    
     def exclui(self, valor):
         posicao = self.pesquisa(valor)
         if posicao == -1:
